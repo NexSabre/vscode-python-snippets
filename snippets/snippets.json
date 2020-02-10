@@ -1,32 +1,134 @@
 {
   "#!": {
-    "prefix": "#!",
-    "body": ["#!/usr/bin/env python3"],
+    "prefix": ["env", "#!"],
+    "body": ["#!/usr/bin/env python"],
     "description": null
   },
   "#!2": {
-    "prefix": "#!2",
-    "body": ["#!/usr/bin/env python2", "# -*- coding: utf-8 -*-"],
+    "prefix": ["env2", "#!2"],
+    "body": ["#!/usr/bin/env python2"],
     "description": null
   },
   "#!3": {
-    "prefix": "#!3",
+    "prefix": ["env3", "#!3"],
     "body": ["#!/usr/bin/env python3"],
     "description": null
   },
+  "enc": {
+    "prefix": ["enc"],
+    "body": ["# -*- coding=utf-8 -*-"],
+    "description": null
+  },
+  "enco": {
+    "prefix": ["enco"],
+    "body": ["# coding=utf-8"],
+    "description": null
+  },
   "imp": {
-    "prefix": "imp",
+    "prefix": ["im", "imp"],
     "body": ["import ${0:module}"],
     "description": null
   },
+  "from": {
+    "prefix": ["fim", "from"],
+    "body": ["from ${1:package} import ${0:module}"],
+    "description": null
+  },
+  "fdt": {
+    "prefix": ["fdt"],
+    "body": ["from dataclasses import dataclass"],
+    "description": "from dataclasses import dataclass"
+  },
+  "cl": {
+    "prefix": "cl",
+    "body": [
+      "class ${1:ClassName}(${2:object}):",
+      "\t\"\"\"${3:docstring for $1}\"\"\"",
+      "\tdef __init__(self, ${4:arg}):",
+      "\t\t${5:super($1, self).__init__()}",
+      "\t\tself.$4 = $4",
+      "\t\t${0}"
+    ],
+    "description": null
+  },
+  "cla": {
+    "prefix": "cla",
+    "body": ["class ${1:class_name}:", "\t\"\"\"${0:description}\"\"\""],
+    "description": null
+  },
+  "clai": {
+    "prefix": "clai",
+    "body": [
+      "class ${1:class_name}:",
+      "\t\"\"\"${2:description}\"\"\"",
+      "\tdef __init__(self, ${3:args}):",
+      "\t\t${0}"
+    ],
+    "description": null
+  },
+  "claip": {
+    "prefix": "claip",
+    "body": [
+      "class ${1:class_name}:",
+      "\t\"\"\"${2:description}\"\"\"",
+      "\tdef __init__(self, ${3:args}):",
+      "\t\t${4}",
+      "\n",
+      "\tdef __post_init__(self, ${5:args}):",
+      "\t\t${0}"
+    ],
+    "description": null
+  },
+  "dtcl": {
+    "prefix": ["dtcl", "dtcls"],
+    "body": ["@dataclass", "class ${1:class_name}:", "\t${0}"],
+    "description": null
+  },
+  "dtcla": {
+    "prefix": ["dtcla"],
+    "body": [
+      "@dataclass",
+      "class ${1:class_name}:",
+      "\t\"\"\"${2:description}\"\"\"",
+      "\t${0}"
+    ],
+    "description": null
+  },
+  "dtclap": {
+    "prefix": ["dtclap"],
+    "body": [
+      "@dataclass",
+      "class ${1:class_name}:",
+      "\t\"\"\"${2:description}\"\"\"",
+      "\t${3}",
+      "\tdef __post_init__(self, ${4:args}):",
+      "\t\t${0}"
+    ],
+    "description": null
+  },
+  "df, def": {
+    "prefix": ["def", "df"],
+    "body": [
+      "def ${1:fname}(${2:args):",
+      "\t\"\"\"${3:docstring for $1}\"\"\"",
+      "\t${0}"
+    ],
+    "description": null
+  },
+  "dff, deff": {
+    "prefix": ["dff", "deff"],
+    "body": ["def ${1:fname}(self, ${2:args}):", "\t${0}"],
+    "description": null
+  },
+  "sdf, sdef": {
+    "prefix": ["sdf", "sdef"],
+    "body": ["@staticmethod", "def ${1:fname}(${2:args}):", "\t${0}"],
+    "description": null
+  },
+
   "uni": {
     "prefix": "uni",
     "body": ["def __unicode__(self):", "\t${0:representation}"],
-    "description": null
-  },
-  "from": {
-    "prefix": "from",
-    "body": ["from ${1:package} import ${0:module}"],
     "description": null
   },
   "docs": {
@@ -59,54 +161,13 @@
     "description": null
   },
   "with": {
-    "prefix": "with",
+    "prefix": ["wth", "with"],
     "body": ["with ${1:expr} as ${2:var}:", "\t${0:${VISUAL}}"],
     "description": null
   },
   "awith": {
     "prefix": "awith",
     "body": ["async with ${1:expr} as ${2:var}:", "\t${0:${VISUAL}}"],
-    "description": null
-  },
-  "cl": {
-    "prefix": "cl",
-    "body": [
-      "class ${1:ClassName}(${2:object}):",
-      "\t\"\"\"${3:docstring for $1}\"\"\"",
-      "\tdef __init__(self, ${4:arg}):",
-      "\t\t${5:super($1, self).__init__()}",
-      "\t\tself.$4 = $4",
-      "\t\t${0}"
-    ],
-    "description": null
-  },
-  "cla": {
-    "prefix": "cla",
-    "body": ["class ${1:class_name}:", "\t\"\"\"${0:description}\"\"\""],
-    "description": null
-  },
-  "clai": {
-    "prefix": "clai",
-    "body": [
-      "class ${1:class_name}:",
-      "\t\"\"\"${2:description}\"\"\"",
-      "\tdef __init__(self, ${3:args}):",
-      "\t\t${0}"
-    ],
-    "description": null
-  },
-  "def": {
-    "prefix": "def",
-    "body": [
-      "def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):",
-      "\t\"\"\"${3:docstring for $1}\"\"\"",
-      "\t${0}"
-    ],
-    "description": null
-  },
-  "deff": {
-    "prefix": "deff",
-    "body": ["def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):", "\t${0}"],
     "description": null
   },
   "adef": {
