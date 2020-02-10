@@ -1,0 +1,27 @@
+{
+  "name": "vscode-python-snippets",
+  "description": "Code snippets for Python",
+  "version": "1.0.0",
+  "displayName": "Python code snippets",
+  "publisher": "nexsabre",
+  "icon": "images/python.png",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nexsabre/vscode-python-snippets"
+  },
+  "engines": {
+    "vscode": "0.10.x"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  }
+}
