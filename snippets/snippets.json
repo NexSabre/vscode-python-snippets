@@ -1,28 +1,28 @@
 {
-  "#!": {
+  "env": {
     "prefix": ["env", "#!"],
     "body": ["#!/usr/bin/env python"],
-    "description": null
+    "description": "Set default enviroment shebang"
   },
-  "#!2": {
+  "env2": {
     "prefix": ["env2", "#!2"],
     "body": ["#!/usr/bin/env python2"],
-    "description": null
+    "description": "Set shebang for Python 2"
   },
-  "#!3": {
+  "env3": {
     "prefix": ["env3", "#!3"],
     "body": ["#!/usr/bin/env python3"],
-    "description": null
+    "description": "Set shebang for Python 3"
   },
   "enc": {
     "prefix": ["enc"],
     "body": ["# -*- coding=utf-8 -*-"],
-    "description": null
+    "description": "Add UTF-8 codding line"
   },
   "enco": {
     "prefix": ["enco"],
     "body": ["# coding=utf-8"],
-    "description": null
+    "description": "Add UTF-8 codding line"
   },
   "imp": {
     "prefix": ["im", "imp"],
@@ -107,7 +107,7 @@
     "description": null
   },
   "df, def": {
-    "prefix": ["def", "df"],
+    "prefix": ["df", "def"],
     "body": [
       "def ${1:fname}(${2:args):",
       "\t\"\"\"${3:docstring for $1}\"\"\"",
@@ -125,43 +125,122 @@
     "body": ["@staticmethod", "def ${1:fname}(${2:args}):", "\t${0}"],
     "description": null
   },
-
-  "uni": {
-    "prefix": "uni",
-    "body": ["def __unicode__(self):", "\t${0:representation}"],
-    "description": null
+  "pr": {
+    "prefix": ["pr"],
+    "body": ["@property", "def ${1:foo}(self):", "\t${2:return self._$1}"],
+    "description": "New property: get"
   },
-  "docs": {
-    "prefix": "docs",
+  "prs": {
+    "prefix": ["prs"],
     "body": [
-      "\"\"\"",
-      "File: ${1:`vim_snippets#Filename('$1.py', 'foo.py')`}",
-      "Author: `g:snips_author`",
-      "Email: `g:snips_email`",
-      "Github: `g:snips_github`",
-      "Description: ${0}",
-      "\"\"\"",
-      ""
+      "@property",
+      "def ${1:foo}(self):",
+      "\t${2:return self._$1}",
+      "@${4:$1}.setter",
+      "def ${5:$1}(self, value):",
+      "\t${6:self._$1} = value"
     ],
+    "description": "New property: get and set via decorator"
+  },
+  "if": {
+    "prefix": "if",
+    "body": ["if ${1:condition}:", "\t${2:pass}$0"],
+    "description": "Code snippet for the if statement."
+  },
+  "iff": {
+    "prefix": "iff",
+    "body": [
+      "if ${1:condition}:",
+      "\t${2:pass}",
+      "elif:",
+      "\t${3:elif_pass}",
+      "else:",
+      "\t$0"
+    ],
+    "description": "Code snippet for the if statement."
+  },
+  "ife": {
+    "prefix": "ife",
+    "body": ["if ${1:condition}:", "\t${2:pass}", "else:", "\t$0"],
+    "description": "Code snippet for the if statement."
+  },
+  "el": {
+    "prefix": "el",
+    "body": ["else:", "\t$0"],
     "description": null
   },
-  "sk \"skip unittests\" b": {
-    "prefix": "sk",
-    "body": ["@unittest.skip(${1:skip_reason})", ""],
+  "ei": {
+    "prefix": ["ei", "eli"],
+    "body": ["elif ${1:condition}:", "\t$0"],
     "description": null
   },
-  "wh": {
-    "prefix": "wh",
-    "body": ["while ${1:condition}:", "\t${0:${VISUAL}}"],
-    "description": null
+  "for": {
+    "prefix": ["fr", "for"],
+    "body": ["for ${1:value} in ${2:iterable}:", "\t$0"],
+    "description": "Code snippet to create a for loop structure."
+  },
+  "fre": {
+    "prefix": ["fre", "fore"],
+    "body": [
+      "for ${1:value} in ${2:iterable}:",
+      "\t${3:loop_action}",
+      "else:",
+      "\t$0"
+    ],
+    "description": "Code snippet to create a for loop structure with additional else on final"
+  },
+  "while": {
+    "prefix": ["wh", "while"],
+    "body": ["while ${1:condition}:", "\t$0"],
+    "description": "Code snippet to create a while loop structure."
   },
   "dowh": {
     "prefix": "dowh",
     "body": ["while True:", "\t${1}", "\tif ${0:condition}:", "\t\tbreak"],
     "description": null
   },
+  "try:except:": {
+    "prefix": "try",
+    "body": "try:\n\t${1:pass}\nexcept ${2:Exception} as ${3:e}:\n\t${4:raise $3}$0",
+    "description": "Code Snippet for a try and except blocks."
+  },
+  "try:except:else:finally": {
+    "prefix": "tryef",
+    "body": "try:\n\t${1:pass}\nexcept${2: ${3:Exception} as ${4:e}}:\n\t${5:raise}\nelse:\n\t${6:pass}\nfinally:\n\t${7:pass}$0",
+    "description": "Code Snippet for a try/except/finally with else statement."
+  },
+  "try:except:else": {
+    "prefix": "trye",
+    "body": "try:\n\t${1:pass}\nexcept ${2:Exception} as ${3:e}:\n\t${4:raise $3}\nelse:\n\t${5:pass}$0",
+    "description": "Code Snippet for a try/except with else statement."
+  },
+  "try:except:finally": {
+    "prefix": "tryf",
+    "body": "try:\n\t${1:pass}\nexcept ${2:Exception} as ${3:e}:\n\t${4:raise $3}\nfinally:\n\t${5:pass}$0",
+    "description": "Code Snippet for a try/except/finally."
+  },
+  "self": {
+    "prefix": ".",
+    "body": "self.$0",
+    "description": "Shortend snippet to reference the self property in an object."
+  },
+  "__magic__": {
+    "prefix": "__",
+    "body": "__${1:init}__$0",
+    "description": "Code snippet to create magic methods."
+  },
+  "if __name__ == \"__main__\"": {
+    "prefix": "ifmain",
+    "body": "if __name__ == \"__main__\":\n\t${1:main()}$0",
+    "description": "Create implicitly all the code at the top level using the __name__ special variable."
+  },
   "with": {
     "prefix": ["wth", "with"],
+    "body": ["with ${1:expr}:", "\t${0}"],
+    "description": null
+  },
+  "with as": {
+    "prefix": ["wta", "wath"],
     "body": ["with ${1:expr} as ${2:var}:", "\t${0:${VISUAL}}"],
     "description": null
   },
@@ -216,26 +295,6 @@
       "\treturn locals()",
       "$1 = property(**$1())"
     ],
-    "description": null
-  },
-  "if": {
-    "prefix": "if",
-    "body": ["if ${1:condition}:", "\t${0:${VISUAL}}"],
-    "description": null
-  },
-  "el": {
-    "prefix": "el",
-    "body": ["else:", "\t${0:${VISUAL}}"],
-    "description": null
-  },
-  "ei": {
-    "prefix": "ei",
-    "body": ["elif ${1:condition}:", "\t${0:${VISUAL}}"],
-    "description": null
-  },
-  "for": {
-    "prefix": "for",
-    "body": ["for ${1:item} in ${2:items}:", "\t${0}"],
     "description": null
   },
   "cutf8": {
@@ -314,16 +373,6 @@
       "finally:",
       "\t${0}"
     ],
-    "description": null
-  },
-  "ifmain": {
-    "prefix": "ifmain",
-    "body": ["if __name__ == '__main__':", "\t${0:main()}"],
-    "description": null
-  },
-  "_": {
-    "prefix": "_",
-    "body": ["__${1:init}__"],
     "description": null
   },
   "pdb": {
@@ -678,6 +727,30 @@
       "\t${3:pass}",
       ""
     ],
+    "description": null
+  },
+  "uni": {
+    "prefix": "uni",
+    "body": ["def __unicode__(self):", "\t${0:representation}"],
+    "description": null
+  },
+  "docs": {
+    "prefix": "docs",
+    "body": [
+      "\"\"\"",
+      "File: ${1:`vim_snippets#Filename('$1.py', 'foo.py')`}",
+      "Author: `g:snips_author`",
+      "Email: `g:snips_email`",
+      "Github: `g:snips_github`",
+      "Description: ${0}",
+      "\"\"\"",
+      ""
+    ],
+    "description": null
+  },
+  "sk \"skip unittests\" b": {
+    "prefix": "sk",
+    "body": ["@unittest.skip(${1:skip_reason})", ""],
     "description": null
   }
 }

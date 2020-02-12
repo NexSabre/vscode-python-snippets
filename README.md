@@ -1,8 +1,11 @@
 # VSCode Python
 
-This extension contains code snippets for Python for Visual Studio Code.
+**Note**: This extension is still in development process. Some keyword may change.
 
-**Note**: This snippets.json was generated automaticaly base on https://github.com/honza/vim-snippets
+This extension contains code snippets for Python for Visual Studio Code.
+Most of the shortcuts were selected from other more popular libraries.
+
+**Note**: Main part of snippets.json was generated automaticaly base on https://github.com/honza/vim-snippets
 
 ## Installation
 
@@ -34,28 +37,32 @@ To install this extension type _Extensions_ in Command Pallete, then find a `vsc
 | df, def      | New function                                   |
 | dff, deff    | New method                                     |
 | sdf, sdef    | New static method                              |
+| pr           | New property                                   |
+| prs          | New property and setter                        |
+| if           | if                                             |
+| ife          | if/else                                        |
+| iff          | if/elif/else                                   |
+| el           | else                                           |
+| ei, eli      | elif                                           |
+| fr, for      | for                                            |
+| fre, fore    | for/else                                       |
+| wh, while    | while                                          |
+| dowh         | "do while" in loop                             |
+| try          | try:except:                                    |
+| tryef        | try:except:else:finally:                       |
+| trye         | try:except:else:                               |
+| tryf         | try:except:finally:                            |
+| .            | self                                           |
+| \_\_         | **magic**                                      |
+| ifmain       | if **name** == "**main**"                      |
+| wth, with    | with                                           |
+| wta, wath    | with ... as ...                                |
 
 ## Todo
 
 Extend a functionality base on other popular sets of snsippets
 
 1. https://github.com/cstrap/python-snippets
-
-### Base
-
-| Abbreviation | Description               |
-| ------------ | ------------------------- |
-| property     | New property              |
-| if           | if                        |
-| for          | for                       |
-| while        | while                     |
-| try          | try:except:               |
-| tryef        | try:except:else:finally:  |
-| trye         | try:except:else:          |
-| tryf         | try:except:finally:       |
-| .            | self                      |
-| \_\_         | **magic**                 |
-| ifmain       | if **name** == "**main**" |
 
 ### Comprehensions
 
@@ -97,26 +104,3 @@ Extend a functionality base on other popular sets of snsippets
 | ipdb         | iPDB set trace |
 | rpdb         | rPDB set trace |
 | pudb         | PuDB set trace |
-
-### Tkinter
-
-| Abbreviation | Description        |
-| ------------ | ------------------ |
-| imtk         | Import Tkinter py2 |
-| imtk3        | Import tkinter py3 |
-| config       | Root configuration |
-| button       | Button             |
-| label        | Label              |
-| frame        | Frame              |
-| entry        | Entry              |
-| grid         | Grid               |
-| sticky       | Sticky             |
-| checkbutton  | Check button       |
-| mainloop     | Main loop          |
-| pack         | Pack               |
-| side         | Side               |
-| bind         | Bind               |
-| menu         | Menu               |
-| addcascade   | Add cascade        |
-| addcommand   | Add command        |
-| addseperator | Add seperator      |
