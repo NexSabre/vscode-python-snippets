@@ -1,7 +1,7 @@
 {
   "name": "vscode-python-snippets",
   "description": "Code snippets for Python",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "displayName": "Python code snippets",
   "publisher": "NexSabre",
   "icon": "images/python.png",
