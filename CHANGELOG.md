@@ -1,10 +1,11 @@
 # Changelog
 
-## [1.2.0] - 2020-02-12
+## [1.2.1] - 2020-02-12
 
 ### Changed
 
 - Added a new elements
+- Added a new logo
 
 ## [1.1.1] - 2020-02-10
 
